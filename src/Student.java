@@ -10,7 +10,6 @@ public class Student
     private String grades;
 
     public Student(String name, String grades)
-     // I decided to only include the student's name in the construct function, add separate function for the grades
     // There are a lot of problems with this construct function
     {
         this.name = name;

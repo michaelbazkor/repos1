@@ -8,10 +8,33 @@ public class GradeSystem {
 
     public GradeSystem() {
         this.free_index = 0;
+        System.out.println("Welcome to the Student Grade Management System!");
     }
 
-    public void addStudent(Student s){
-        this.student_arr[this.free_index] = s;
+    public void printOptions(){
+        System.out.println("1. Add a new student");
+        System.out.println("2. Display all students");
+        System.out.println("3. Calculate a student's average grade");
+        System.out.println("4. Find the top performing student");
+        System.out.println("5. Exit");
+    }
+
+    public void addStudent(String name, String grades){
+        // adds a student
+        if(free_index == MAX_SIZE){
+            System.out.println("Student limit reached.");
+            return;
+        }
+        String[] grades_arr = grades.split(" ");
+        int grade;
+        for(String string : grades_arr) {
+            grade = Integer.parseInt(string);
+            if(grade > 100 || grade < 0){
+                System.out.println("Invalid grades.");
+                return;
+            }
+        }
+        this.student_arr[this.free_index] = new Student(name, grades);
         this.free_index++;
     }
 

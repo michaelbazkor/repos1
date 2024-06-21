@@ -4,7 +4,16 @@ import java.util.Scanner;
 
 public class Main {
     public static Scanner scanner; // Note: Do not change this line.
-    public static void manageGrades() {}
+    public static void manageGrades() {
+        GradeSystem my_system = new GradeSystem();
+        boolean flag = true;
+        while(flag){
+            my_system.printOptions();
+            switch(scanner.nextInt()){
+                case 1:
+            }
+        }
+    }
     public static void main(String[] args) throws IOException {
         String path = args[0];
         scanner = new Scanner(new File(path));

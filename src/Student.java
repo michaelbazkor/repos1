@@ -25,6 +25,7 @@ public class Student {
         for(int i = 1; i < grade_arr.length; i++){
             System.out.print(", " + grade_arr[i]);
         }
+        System.out.println();
     }
 
     public double getAverage() {

@@ -26,9 +26,9 @@ public class GradeSystem {
     public void addStudent(){
         // adds a student to the system if system is not full and the grades are legal
         System.out.println("Enter student name:");
-        String name = input.next();
+        String name = input.nextLine();
         System.out.println("Enter grades:");
-        String grades = input.next();
+        String grades = input.nextLine();
         if(free_index == MAX_SIZE){
             System.out.println("Student limit reached.");
             return;
@@ -81,13 +81,13 @@ public class GradeSystem {
         }
         String name_student = "";
         double max = -1;
-        for(int i = 0; i < this.student_arr.length; i++) {
+        for(int i = 0; i < this.free_index; i++) {
             if(this.student_arr[i].getAverage() > max){
                 name_student = this.student_arr[i].getName();
                 max = this.student_arr[i].getAverage();
             }
         }
-        System.out.println("Top performing student:" + name_student + " with an average grade of " + max);
+        System.out.println("Top performing student: " + name_student + " with an average grade of " + max);
     }
 }
 

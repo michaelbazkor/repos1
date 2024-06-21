@@ -2,14 +2,16 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
+
 public class Main {
     public static Scanner scanner; // Note: Do not change this line.
     public static void manageGrades() {
+        Scanner input = new Scanner(System.in);
         GradeSystem my_system = new GradeSystem();
         boolean flag = true;
         while(flag){
             my_system.printOptions();
-            switch(scanner.nextInt()){
+            switch(input.nextInt()){
                 case 1:
                     my_system.addStudent();
                     break;
@@ -32,7 +34,7 @@ public class Main {
         }
     }
     public static void main(String[] args) throws IOException {
-        String path = args[0];
+        /*String path = args[0];
         scanner = new Scanner(new File(path));
         int numberOfTests = scanner.nextInt();
         scanner.nextLine();
@@ -48,6 +50,7 @@ public class Main {
             System.out.println("Test number " + i + " ended.");
             System.out.println("-----------------------------------------------");
         }
-        System.out.println("All tests have ended.");
+        System.out.println("All tests have ended.");*/
+        manageGrades();
     }
 }

@@ -11,7 +11,8 @@ public class Main {
         int numberOfTests = scanner.nextInt();
         scanner.nextLine();
 
-        for (int i = 1; i <= numberOfTests; i++) {
+        for (int i = 1; i <= numberOfTests; i++)
+        {
             System.out.println("Test number " + i + " starts.");
             try {
                 manageGrades();

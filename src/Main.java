@@ -11,6 +11,19 @@ public class Main {
             my_system.printOptions();
             switch(scanner.nextInt()){
                 case 1:
+                    my_system.addStudent();
+                    break;
+                case 2:
+                    my_system.displayAll();
+                    break;
+                case 3:
+                    my_system.calculateAverage();
+                    break;
+                case 4:
+                    my_system.StudentHighAverage();
+                    break;
+                case 5:
+                    flag = false;
             }
         }
     }

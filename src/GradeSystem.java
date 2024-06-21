@@ -1,10 +1,13 @@
-public class GradeSystem {
-    // This class holds all our Students, we can access them by name through here
-    int MAX_SIZE = 100;
+import java.util.Scanner;
 
+public class GradeSystem {
+    Scanner input = new Scanner(System.in);
+    int MAX_SIZE = 100;
+    // student limit constant
     private Student[] student_arr = new Student[MAX_SIZE];
-    // this int var keeps the next index in the array
+    // student array
     private int free_index;
+    // next free space in array
 
     public GradeSystem() {
         this.free_index = 0;
@@ -12,6 +15,7 @@ public class GradeSystem {
     }
 
     public void printOptions(){
+        //prints system's functions
         System.out.println("1. Add a new student");
         System.out.println("2. Display all students");
         System.out.println("3. Calculate a student's average grade");
@@ -19,12 +23,17 @@ public class GradeSystem {
         System.out.println("5. Exit");
     }
 
-    public void addStudent(String name, String grades){
-        // adds a student
+    public void addStudent(){
+        // adds a student to the system if system is not full and the grades are legal
+        System.out.println("Enter student name:");
+        String name = input.next();
+        System.out.println("Enter grades:");
+        String grades = input.next();
         if(free_index == MAX_SIZE){
             System.out.println("Student limit reached.");
             return;
         }
+        //check for space
         String[] grades_arr = grades.split(" ");
         int grade;
         for(String string : grades_arr) {
@@ -34,16 +43,51 @@ public class GradeSystem {
                 return;
             }
         }
+        //check for legal grades
         this.student_arr[this.free_index] = new Student(name, grades);
+        System.out.println("Student " + this.student_arr[this.free_index].getName() + " added successfully!");
+        //insert student
         this.free_index++;
     }
 
     public void displayAll(){
+        // prints all the system's student data
         if(this.free_index == 0){
             System.out.println("No students records available.");
         }
+        // in case the array is empty
         for(int i = 0; i < this.free_index; i++){
-            System.out.print(this.student_arr[i]);
+            this.student_arr[i].display();
         }
     }
+
+    public void calculateAverage(){
+        // receive a student name and print average if exists
+        System.out.println("Enter student name:");
+        String name = input.next();
+        for(int i = 0; i < this.free_index; i++){
+            if(student_arr[i].getName().equals(name)){
+                System.out.println(student_arr[i].average());
+                return;
+            }
+        }
+        System.out.println("No student found with name " + name + ".");
+    }
+
+    public void StudentHighAverage()
+    {
+        String name_student="";
+        double max=-1;
+        for(int i = 0; i < this.student_arr.length; i++)
+        {
+            if(average(this.student_arr[i])>max)
+            {
+                name_student=this.student_arr[i].getname();
+                max=average(this.student_arr[i]);
+            }
+        }
+        System.out.println(name_student+"has the highest average of "+max);
+    }
 }
+
+

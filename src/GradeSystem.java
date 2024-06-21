@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class GradeSystem {
     Scanner input = new Scanner(System.in);
-    int MAX_SIZE = 100;
+    final int MAX_SIZE = 100;
     // student limit constant
     private Student[] student_arr = new Student[MAX_SIZE];
     // student array
@@ -67,26 +67,27 @@ public class GradeSystem {
         String name = input.next();
         for(int i = 0; i < this.free_index; i++){
             if(student_arr[i].getName().equals(name)){
-                System.out.println(student_arr[i].average());
+                System.out.println(student_arr[i].getAverage());
                 return;
             }
         }
         System.out.println("No student found with name " + name + ".");
     }
 
-    public void StudentHighAverage()
-    {
-        String name_student="";
-        double max=-1;
-        for(int i = 0; i < this.student_arr.length; i++)
-        {
-            if(average(this.student_arr[i])>max)
-            {
-                name_student=this.student_arr[i].getname();
-                max=average(this.student_arr[i]);
+    public void topStudent() {
+        if(this.free_index == 0){
+            System.out.println("No students records available.");
+            return;
+        }
+        String name_student = "";
+        double max = -1;
+        for(int i = 0; i < this.student_arr.length; i++) {
+            if(this.student_arr[i].getAverage() > max){
+                name_student = this.student_arr[i].getName();
+                max = this.student_arr[i].getAverage();
             }
         }
-        System.out.println(name_student+"has the highest average of "+max);
+        System.out.println("Top performing student:" + name_student + " with an average grade of " + max);
     }
 }
 

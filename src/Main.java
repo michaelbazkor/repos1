@@ -20,10 +20,14 @@ public class Main {
                     my_system.calculateAverage();
                     break;
                 case 4:
-                    my_system.StudentHighAverage();
+                    my_system.topStudent();
                     break;
                 case 5:
+                    System.out.println("Exiting the program. Goodbye!");
                     flag = false;
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
             }
         }
     }
